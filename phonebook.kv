@@ -1,0 +1,46 @@
+<PhonebookRoot>:
+    orientation: "vertical"
+
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title: ""
+                with_previous: False
+            ActionOverflow:
+                ActionButton:
+                    text: "Settings"
+                    on_press: app.open_settings()
+                ActionButton:
+                    text: "About"
+                    on_press: app.open_about()
+                ActionButton:
+                    text: "Opdater"
+                    on_press: app.update_phonebook()
+
+<PassGetter>:
+    size_hint: .4, .4
+    title: "Indtast kodeord"
+    title_size: root.height * .05
+    auto_dismiss: False
+
+<ResLabel@Label>:
+    halign: "left"
+    markup: True
+    font_size: root.height / 3
+    text_size: self.width, None
+    pos_hint_x: 0
+
+<UpdatePopup>:
+    size_hint: .8, .8
+    title: "Opdaterer..."
+    title_size: root.height * .05
+    auto_dismiss: False
+    PaddedBoxLayout:
+        orientation: "vertical"
+        Label:
+            text: root.message
+            halign: "center"
+            markup: True
+            font_size: root.height / 10
+            text_size: self.width, None
+            center_y: .5
